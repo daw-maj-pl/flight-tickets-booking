@@ -73,13 +73,16 @@ const Summary = props => {
     } else {
       axios
         .get(
-          `http://api.nbp.pl/api/exchangerates/rates/a/${event.target.value}/`
+          `https://api.exchangeratesapi.io/latest?base=${event.target.value}`
+          // `http://api.nbp.pl/api/exchangerates/rates/a/${event.target.value}/`
         )
         .then(response => {
           setTotalPrice(
             (
               (prices[toConfirm.selectedPackage] * toConfirm.passengers) /
-              response.data.rates[0].mid
+              response.data.rates["PLN"]
+              // response.data.rates[0].mid
+
             ).toFixed(2)
           );
         });
