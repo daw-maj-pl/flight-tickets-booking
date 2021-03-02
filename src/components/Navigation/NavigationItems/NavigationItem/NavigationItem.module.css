@@ -1,0 +1,30 @@
+.NavigationItem {
+  display: flex;
+}
+
+.NavigationItem a {
+  padding: 16px 10px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.NavigationItem a:hover,
+.NavigationItem a.active {
+  border-bottom: 4px solid #4b2985;
+}
+
+@media (max-width: 363px) {
+  .NavigationItem a {
+    width: 100%;
+    text-align: center;
+    border-bottom: none;
+    border-left: 4px solid transparent;
+  }
+
+  .NavigationItem a:hover,
+  .NavigationItem a.active {
+    border-bottom: none;
+    border-left: 4px solid #4b2985;
+  }
+}

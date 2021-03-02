@@ -1,0 +1,11 @@
+.HomePage {
+  padding: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 576px) {
+  .HomePage {
+    flex-direction: row;
+  }
+}

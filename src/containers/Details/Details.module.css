@@ -1,0 +1,54 @@
+.Details {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.Btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Cancel {
+  width: 100%;
+  margin: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: grey;
+  box-shadow: 0px 0px 5px grey;
+}
+
+.Continue {
+  width: 100%;
+  margin: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: blueviolet;
+  box-shadow: 0px 0px 5px blueviolet;
+}
+
+.Continue:hover {
+  box-shadow: 0px 0px 5px blueviolet;
+  animation: pulsation 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulsation {
+  0% {
+    transform: scale(1);
+    box-shadow: 0px 0px 5px blueviolet;
+  }
+
+  100% {
+    transform: scale(1.01);
+    box-shadow: 0px 0px 14px blueviolet;
+  }
+}

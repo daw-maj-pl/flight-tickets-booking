@@ -1,0 +1,4 @@
+.WeatherForecast {
+  display: flex;
+  flex-direction: column;
+}

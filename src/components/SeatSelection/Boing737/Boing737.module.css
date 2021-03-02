@@ -1,0 +1,17 @@
+svg {
+  border-radius: 5px;
+  box-shadow: 0 0 5px #eee;
+}
+
+.Available {
+  cursor: pointer;
+}
+
+.NotAvailable {
+  fill: black;
+  cursor: not-allowed;
+}
+
+.Selected {
+  fill: blueviolet;
+}

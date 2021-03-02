@@ -1,0 +1,27 @@
+.Toolbar {
+  width: 100%;
+  height: 56px;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: row-reverse;
+  z-index: 1;
+}
+
+.Toolbar nav {
+  display: flex;
+}
+
+@media (max-width: 363px) {
+  .Toolbar {
+    height: 159px;
+    padding: 0;
+  }
+
+  .Toolbar nav {
+    width: 100%;
+  }
+}

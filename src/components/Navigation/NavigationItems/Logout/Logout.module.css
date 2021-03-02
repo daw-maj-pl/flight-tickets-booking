@@ -1,0 +1,29 @@
+.Logout {
+  display: flex;
+}
+
+.Logout span {
+  padding: 16px 10px;
+  color: white;
+  cursor: pointer;
+  border-bottom: 4px solid transparent;
+}
+
+.Logout span:hover {
+  border-bottom: 4px solid #4b2985;
+}
+
+@media (max-width: 363px) {
+  .Logout span {
+    width: 100%;
+    text-align: center;
+    border-bottom: none;
+    border-left: 4px solid transparent;
+  }
+
+  .Logout span:hover,
+  .Logout span.active {
+    border-bottom: none;
+    border-left: 4px solid #4b2985;
+  }
+}
