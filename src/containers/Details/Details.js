@@ -69,7 +69,7 @@ const Details = props => {
       selectedSeats.length === +searchTerms.passengers
     ) {
       window.scroll({
-        top: 1000,
+        top: 2000,
         left: 0,
         behavior: 'smooth'
       });
