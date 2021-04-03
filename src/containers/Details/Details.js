@@ -62,6 +62,20 @@ const Details = props => {
       });
   }, [props.location.search, props.history]);
 
+  useEffect(() => {
+    if (
+      selectedFlight &&
+      selectedPackage &&
+      selectedSeats.length === +searchTerms.passengers
+    ) {
+      window.scroll({
+        top: 1000,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
+  });
+
   const handleSelectedFlightClick = () => {
     setSelectedFlight(!selectedFlight);
   };
@@ -87,6 +101,24 @@ const Details = props => {
   const handleListenersAdded = () => {
     setListenersAdded(true);
   };
+
+  const hiddenButtons = (
+    <div className={classes.Btns}>
+      <Link className={classes.Cancel} to="/">
+        Powrót
+      </Link>
+
+      <Link
+        className={classes.Continue}
+        to={{
+          pathname: '/summary',
+          search: `?departure=${searchTerms.departure}&destination=${searchTerms.destination}&departureDate=${searchTerms.departureDate}&passengers=${searchTerms.passengers}&selectedSeats=${selectedSeats}&selectedPackage=${selectedPackage}`
+        }}
+      >
+        Kontynuuj
+      </Link>
+    </div>
+  );
 
   return (
     <div className={classes.Details}>
@@ -120,23 +152,9 @@ const Details = props => {
 
       {selectedFlight &&
       selectedPackage &&
-      selectedSeats.length === +searchTerms.passengers ? (
-        <div className={classes.Btns}>
-          <Link className={classes.Cancel} to="/">
-            Powrót
-          </Link>
-
-          <Link
-            className={classes.Continue}
-            to={{
-              pathname: '/summary',
-              search: `?departure=${searchTerms.departure}&destination=${searchTerms.destination}&departureDate=${searchTerms.departureDate}&passengers=${searchTerms.passengers}&selectedSeats=${selectedSeats}&selectedPackage=${selectedPackage}`
-            }}
-          >
-            Kontynuuj
-          </Link>
-        </div>
-      ) : null}
+      selectedSeats.length === +searchTerms.passengers
+        ? hiddenButtons
+        : null}
     </div>
   );
 };
