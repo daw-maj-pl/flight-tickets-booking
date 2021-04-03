@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import classes from './HomePage.module.css';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
-import WeatherPanel from '../../components/WeatcherPanel/WeatherPanel';
+import WeatherPanel from '../../components/WeatherPanel/WeatherPanel';
 
 const HomePage = () => {
   const [curDate, setCurDate] = useState(new Date());
