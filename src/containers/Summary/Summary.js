@@ -31,7 +31,9 @@ const Summary = props => {
       )
       .then(response => {
         setPrices(response.data.prices);
-        setTotalPrice(response.data.prices[toConfirm.selectedPackage] * toConfirm.passengers);
+        setTotalPrice(
+          response.data.prices[toConfirm.selectedPackage] * toConfirm.passengers
+        );
         setDepartureTime(response.data.time);
       });
 
@@ -73,17 +75,17 @@ const Summary = props => {
     } else {
       axios
         .get(
-          `https://api.exchangeratesapi.io/latest?base=${event.target.value}`
+          `https://www.frankfurter.app/latest?from=${event.target.value}`
           // `http://api.nbp.pl/api/exchangerates/rates/a/${event.target.value}/`
         )
         .then(response => {
           setTotalPrice(
             (
               (prices[toConfirm.selectedPackage] * toConfirm.passengers) /
-              response.data.rates["PLN"]
+              response.data.rates['PLN']
               // response.data.rates[0].mid
-
-            ).toFixed(2)
+            )
+              .toFixed(2)
           );
         });
     }
@@ -128,14 +130,23 @@ const Summary = props => {
         <h3>Podsumowanie</h3>
         <div>Miejsce wylotu: {toConfirm.departure}</div>
         <div>Cel podróży: {toConfirm.destination}</div>
-        <div>Data wylotu: {new Date(toConfirm.departureDate).toLocaleDateString()}</div>
+        <div>
+          Data wylotu: {new Date(toConfirm.departureDate).toLocaleDateString()}
+        </div>
         <div>Godzina wylotu: {departureTime}</div>
         <div>Liczba pasażerów: {toConfirm.passengers}</div>
         <div>Wybrane miejsca w samolocie: {toConfirm.selectedSeats}</div>
         <div>Wybrany pakiet: {toConfirm.selectedPackage}</div>
         <div>Szczegóły pakietu: {packageInfo}</div>
         <div className={classes.TotalPrice}>
-          {totalPrice ? <div>Całkowity koszt: <strong>{totalPrice} {selectedCurrency}</strong></div> : null}
+          {totalPrice && selectedCurrency ? (
+            <div>
+              Całkowity koszt:{' '}
+              <strong>
+                {totalPrice} {selectedCurrency}
+              </strong>
+            </div>
+          ) : null}
         </div>
         <select
           className={classes.SelectCurrency}
