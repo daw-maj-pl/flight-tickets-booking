@@ -54,7 +54,7 @@ const Summary = props => {
       let cityName = toConfirm.destination;
       if (toConfirm.destination === 'Gdańsk') cityName = 'Gdansk';
       axios
-        .get(`https://hide-api-key.herokuapp.com/api/search?q=${cityName}`)
+        .get(`https://hide-api-key.onrender.com/api/search?q=${cityName}`)
         .then(response => {
           setWeatherForecast(response.data);
         });
@@ -83,8 +83,8 @@ const Summary = props => {
             (
               (prices[toConfirm.selectedPackage] * toConfirm.passengers) /
               response.data.rates['PLN']
-              // response.data.rates[0].mid
             )
+              // response.data.rates[0].mid
               .toFixed(2)
           );
         });
